@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== THEME TOGGLE ===== -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <!-- ===== 12-COLUMN LAYOUT WRAPPER ===== -->
+  <div class="layout">
+
+    <!-- col-12: greeting -->
+    <section class="card col-12" id="greeting-section">
+      <p id="greeting-time" class="greeting-time"></p>
+      <p id="greeting-date" class="greeting-date"></p>
+      <h1 id="greeting-text" class="greeting-text"></h1>
+    </section>
+
+    <!-- col-6: focus timer -->
+    <section class="card col-6" id="timer-section">
+      <h2 class="section-title">Focus Timer</h2>
+      <div id="timer-display" class="timer-display">25:00</div>
+      <div class="timer-buttons">
+        <button id="timer-start" class="btn btn-primary">Start</button>
+        <button id="timer-stop" class="btn btn-secondary">Stop</button>
+        <button id="timer-reset" class="btn btn-ghost">Reset</button>
+      </div>
+      <p id="timer-status" class="timer-status">Ready to focus</p>
+      <div class="timer-custom">
+        <label for="timer-minutes" class="timer-custom-label">Set minutes:</label>
+        <input type="number" id="timer-minutes" class="input timer-minutes-input" min="1" max="120" value="25" />
+        <button id="timer-set" class="btn btn-ghost">Set</button>
+      </div>
+    </section>
+
+    <!-- col-6: to-do list -->
+    <section class="card col-6" id="todo-section">
+      <h2 class="section-title">To-Do List</h2>
+      <div class="todo-input-row">
+        <input type="text" id="todo-input" class="input" placeholder="Add a new task…" maxlength="120" />
+        <button id="todo-add" class="btn btn-primary">Add</button>
+      </div>
+      <ul id="todo-list" class="todo-list"></ul>
+    </section>
+
+    <!-- col-6: quick links -->
+    <section class="card col-6" id="links-section">
+      <h2 class="section-title">Quick Links</h2>
+      <div class="links-input-row">
+        <input type="text" id="link-name-input" class="input" placeholder="Label" maxlength="40" />
+        <input type="url" id="link-url-input" class="input" placeholder="https://…" />
+        <button id="link-add" class="btn btn-primary">Add</button>
+      </div>
+      <div id="links-grid" class="links-grid"></div>
+    </section>
+
+  </div>
+
+  <!-- ===== EDIT TASK MODAL ===== -->
+  <div id="edit-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="Edit task">
+    <div class="modal">
+      <h3 class="modal-title">Edit Task</h3>
+      <input type="text" id="edit-input" class="input" maxlength="120" />
+      <div class="modal-buttons">
+        <button id="edit-save" class="btn btn-primary">Save</button>
+        <button id="edit-cancel" class="btn btn-ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
